@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CustomersComponent } from './customers/customers.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {CustomersComponent} from './customers/customers.component';
 import {HttpClientModule} from "@angular/common/http";
 import {HomeComponent} from "./home/home.component";
-
 
 
 @NgModule({
@@ -13,6 +12,8 @@ import {HomeComponent} from "./home/home.component";
   ],
   imports: [
     CommonModule,
+    HttpClientModule
   ]
 })
-export class PagesModule { }
+export class PagesModule {
+}
