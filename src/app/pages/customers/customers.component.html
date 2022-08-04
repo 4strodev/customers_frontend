@@ -1,8 +1,8 @@
 <div class="container d-flex flex-column">
   <div class="row mt-3">
-    <button type="button" class="btn btn-primary col-md-3" data-bs-toggle="modal" data-bs-target="#customerForm">Add customer</button>
+    <button type="button" class="btn btn-primary col-md-3" (click)="createCustomer()">Add customer</button>
   </div>
-  <div class="table-responsive">
+  <div class="table-responsive" *ngIf="customers.length > 0; else noCustomersTitle">
     <table class="table table-striped mt-2">
       <thead>
       <tr>
@@ -23,8 +23,8 @@
         <td><a href="mailto:{{customer.email}}">{{customer.email}}</a></td>
         <td>
           <div class="d-flex">
-            <button class="btn btn-primary me-1" aria-hidden="true" data-bs-toggle="modal" data-bs-target="#customerForm"><i class="fa-solid fa-pen-to-square"></i></button>
-            <button class="btn btn-danger" aria-hidden="true"><i class="fa-solid fa-times"></i></button>
+            <button class="btn btn-primary me-1" aria-hidden="true" (click)="editCustomer(customer.id!)"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button class="btn btn-danger" aria-hidden="true" (click)="deleteCustomer(customer.id!)"><i class="fa-solid fa-times"></i></button>
           </div>
         </td>
       </tr>
@@ -33,6 +33,6 @@
   </div>
 </div>
 
-<app-customer-form></app-customer-form>
-
-
+<ng-template #noCustomersTitle>
+  <h2 class="text-center">No customers</h2>
+</ng-template>
