@@ -1,1 +1,38 @@
-<p>customers works!</p>
+<div class="container d-flex flex-column">
+  <div class="row mt-3">
+    <button type="button" class="btn btn-primary col-md-3" data-bs-toggle="modal" data-bs-target="#customerForm">Add customer</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-striped mt-2">
+      <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Email</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let customer of customers">
+        <th scope="row">{{customer.id}}</th>
+        <td>{{customer.name}}</td>
+        <td>{{customer.last_name}}</td>
+        <td><a href="tel:{{customer.phone}}">{{customer.phone}}</a></td>
+        <td><a href="mailto:{{customer.email}}">{{customer.email}}</a></td>
+        <td>
+          <div class="d-flex">
+            <button class="btn btn-primary me-1" aria-hidden="true" data-bs-toggle="modal" data-bs-target="#customerForm"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button class="btn btn-danger" aria-hidden="true"><i class="fa-solid fa-times"></i></button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-customer-form></app-customer-form>
+
+

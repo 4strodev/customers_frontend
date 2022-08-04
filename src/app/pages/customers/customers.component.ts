@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
 import { CustomerModel } from "../../models/customer.model";
+import {CustomersService} from "../../services/customers.service";
 
 @Component({
   selector: 'app-customers',
@@ -9,11 +9,21 @@ import { CustomerModel } from "../../models/customer.model";
 })
 export class CustomersComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  customers: CustomerModel[] = [];
+
+  constructor(private customersService: CustomersService) { }
+
+  public editCustomer(id: number) {
+    console.log(`Editing customer ${id}`);
+  }
+
+  public deleteCustomer(id: number) {
+    console.log(`Deleting customer ${id}`);
+  }
 
   ngOnInit(): void {
-    this.http.get<CustomerModel>('http://localhost:3000/customers').subscribe((data: CustomerModel) => {
-      console.log(data);
+    this.customersService.customers().then(customers => {
+      this.customers = customers;
     })
   }
 
