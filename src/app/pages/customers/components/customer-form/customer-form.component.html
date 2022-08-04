@@ -6,8 +6,8 @@
   <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.close()"></button>
 </div>
 <form class="modal-body">
-  <div class="row mb-md-3">
-    <div class="col-md-6">
+  <div class="row">
+    <div class="col-md-6 mb-3">
       <label for="name-input">Name</label>
       <input type="text" name="name" id="name-input" [(ngModel)]="customerService.customer.name" class="form-control"
              required [ngClass]="{'is-invalid': isInvalid}" [ngModelOptions]="{standalone: true}">
@@ -15,19 +15,19 @@
         Please put a name
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 mb-3">
       <label for="surname-input">Last name</label>
       <input type="text" name="name" id="surname-input" [(ngModel)]="customerService.customer.last_name"
              class="form-control" [ngModelOptions]="{standalone: true}">
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 mb-3">
       <label for="phone-input">Phone</label>
       <input type="text" name="name" id="phone-input" [(ngModel)]="customerService.customer.phone" class="form-control"
              [ngModelOptions]="{standalone: true}">
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 mb-3">
       <label for="email-input">Email</label>
       <input type="text" name="name" id="email-input" [(ngModel)]="customerService.customer.email" class="form-control"
              [ngModelOptions]="{standalone: true}">
