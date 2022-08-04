@@ -15,5 +15,6 @@ export class WalletComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     const wallet = ethers.Wallet.createRandom()
     console.log(wallet);
+    // todo: create wallet with password
   }
 }
